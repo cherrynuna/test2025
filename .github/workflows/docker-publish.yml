@@ -13,9 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: List current directory files
-      run: ls -l
-
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
