@@ -20,7 +20,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build -t inryu/test2025:latest .
+      run: docker build --no-cache -t inryu/test2025:latest .
 
     - name: Push to Docker Hub
       run: docker push inryu/test2025:latest
