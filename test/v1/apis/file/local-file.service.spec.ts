@@ -4,7 +4,7 @@ import path from 'path';
 import LocalFileService from '../../../../src/v1/apis/file/services/local-file.service.js';
 import { BadRequestException } from '../../../../src/v1/common/exceptions/core.error.js';
 
-const baseDir = '/Users/woongbishin/WebstormProjects/file-server/uploads';
+const baseDir = '/goinfre/inryu/test2025/uploads';
 const baseUrl = 'http://localhost:3000';
 const testKey = 'test.txt';
 const testContent = Buffer.from('test message');
@@ -27,7 +27,8 @@ describe('LocalFileService', () => {
   it('upload는 파일을 생성하고 URL을 반환한다', async () => {
     const result = await service.upload(testContent, testKey);
     expect(fs.existsSync(testPath)).toBe(true);
-    expect(result).toBe(`${baseUrl}/${testKey}`);
+    expect(result.status).toBe('SUCCESS');
+    expect(result.data.url).toBe(`${baseUrl}/${testKey}`);
     expect(fs.readFileSync(testPath).toString()).toBe('test message');
   });
 
