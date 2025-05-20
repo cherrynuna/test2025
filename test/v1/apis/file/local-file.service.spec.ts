@@ -4,7 +4,7 @@ import path from 'path';
 import LocalFileService from '../../../../src/v1/apis/file/services/local-file.service.js';
 import { BadRequestException } from '../../../../src/v1/common/exceptions/core.error.js';
 
-const baseDir = '/goinfre/inryu/test2025/uploads';
+const baseDir = path.join(process.cwd(), 'uploads');
 const baseUrl = 'http://localhost:3000';
 const testKey = 'test.txt';
 const testContent = Buffer.from('test message');
