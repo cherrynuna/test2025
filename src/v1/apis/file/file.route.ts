@@ -50,22 +50,6 @@ export default async function fileRoutes(fastify: FastifyInstance) {
         internalOnly: true,
       },
     },
-    {
-      method: 'GET',
-      url: '/url',
-      handler: fileController.test,
-      options: {
-        schema: {
-          tags: ['file'],
-          description: 'test',
-          response: {
-            200: coreResponseSchema,
-          },
-        },
-        auth: false,
-        internalOnly: true,
-      },
-    },
   ];
   await addRoutes(fastify, routes);
 }
